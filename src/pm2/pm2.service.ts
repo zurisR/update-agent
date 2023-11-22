@@ -9,8 +9,7 @@ export class Pm2Service {
       pm2.connect(async err => {
         if (err) {
           console.log(err);
-          resolve(false);
-          return;
+          return resolve(false);
         }
 
         pm2.delete(appName, err => {
@@ -29,8 +28,7 @@ export class Pm2Service {
       pm2.connect(async err => {
         if (err) {
           console.log(err);
-          resolve(false);
-          return;
+          return resolve(false);
         }
 
         pm2.start({

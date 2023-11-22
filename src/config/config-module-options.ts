@@ -4,8 +4,8 @@ import gitConfig from './configs/git.config';
 
 export const configModuleOptions: ConfigModuleOptions = {
   validationSchema: Joi.object({
-    GIT_REPOSITORY: Joi.string().default('test-app'),
-    GIT_REPOSITORY_OWNER: Joi.string().default('zurisR'),
+    GIT_REPOSITORY: Joi.string().default('your-repo-name'),
+    GIT_REPOSITORY_OWNER: Joi.string().default('your-repo-owner'),
     GIT_BRANCH: Joi.string().default('master'),
     GIT_ACCESS_TOKEN: Joi.string().default(null)
   }),

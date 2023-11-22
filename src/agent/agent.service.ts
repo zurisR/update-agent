@@ -87,8 +87,7 @@ export class AgentService {
     console.log('Building...');
     cp.spawnSync(npm, ['run', 'build'], {
       cwd: this.currentAppBuildPath
-    }); //нужен для сборки nest js приложения перед стартом - заменить на нужный
-    // для воркера или убрать
+    }); //needed for build nestjs app, you can change it or remove
 
     fs.unlink(filepath, _ => console.log);
 
@@ -163,8 +162,8 @@ export class AgentService {
         return;
       }
 
-      //если при попытке стартануть новый билд что-то пошло не так,
-      // то пытаемся запустить предыдущий билд
+      //if new build started with err,
+      // will try to start previous working build
       if (prevCommitSha && prevAppBuildPath) {
         this.clearOldAppBuildPath(`${this.APPS_PATH}/${this.currentCommitSha}`);
         this.currentCommitSha = prevCommitSha;

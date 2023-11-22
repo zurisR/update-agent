@@ -24,7 +24,11 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Pet project.
+
+Simple CI/CD based on pm2 and github. 
+It tracks new commits in particular branch, downloads the last commit, 
+builds app and starts via PM2.
 
 ## Installation
 
