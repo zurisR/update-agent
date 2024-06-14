@@ -88,6 +88,10 @@ export class AgentService {
     cp.spawnSync(npm, ['run', 'build'], {
       cwd: this.currentAppBuildPath
     }); //needed for build nestjs app, you can change it or remove
+    console.log('Running migrations if needed...');
+    cp.spawnSync(npm, ['run', 'migrate'], {
+      cwd: this.currentAppBuildPath
+    });
 
     fs.unlink(filepath, _ => console.log);
 
