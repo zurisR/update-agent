@@ -12,7 +12,9 @@ export class GitService {
     private readonly configService: ConfigService
   ) {
     this.gitConfig = configService.get<IGitConfig>('git');
-    this.octokit = new Octokit();
+    this.octokit = new Octokit({
+      auth: this.gitConfig.accessToken
+    });
   }
 
   async getLastCommit() {
@@ -20,7 +22,8 @@ export class GitService {
       const res = await this.octokit.request('GET /repos/{owner}/{repo}/commits/{ref}', {
         owner: this.gitConfig.repositoryOwner,
         repo: this.gitConfig.repository,
-        ref: this.gitConfig.branch
+        ref: this.gitConfig.branch,
+        type: 'private'
       });
       return res.data;
     } catch (err) {
