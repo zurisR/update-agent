@@ -34,7 +34,8 @@ export class Pm2Service {
         pm2.start({
           name: options.appName,
           cwd: options.appNamePath,
-          script: options.script
+          script: options.script,
+          node_args: '-r dotenv/config'
         }, err => {
           if (err) {
             console.log(err);
